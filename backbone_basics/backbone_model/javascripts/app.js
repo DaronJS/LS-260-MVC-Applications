@@ -7,27 +7,11 @@ function renderForm(product) {
 }
 
 function formatDateTime(date) {
-  return new Date(date).toJSON().replace(/(\.[a-z0-9]*)/gi, '');
+  return moment(date).format();
 }
 
 function formatDate(date) {
-  var calendar = ['January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 
-                  'August', 'September', 'October', 'November', 'December'];
-
-  var alternateSuffixes = ['st,', 'nd,', 'rd,'];
-
-  var date = new Date(date);
-  var year = date.getFullYear();
-  var month = calendar[date.getMonth()];
-  var day = date.getDate();
-  var time = date.getHours() + ':' + date.getMinutes();
-  var suffix;
-
-  suffix = alternateSuffixes.length >= day ?  alternateSuffixes[day] : 'th,';
-
-  var formattedDate = month + ' ' + day + suffix + ' ' + year + ' ' + time;
-
-  return formattedDate;
+  return moment(date).format('MMMM Do YYYY, h:mm:ss a');
 }
 
 
