@@ -1,5 +1,3 @@
-var template = Handlebars.compile($('#items').html());
-Handlebars.registerPartial('item', $('#item').html());
 
 var ItemModel = Backbone.Model.extend({
   idAttribute: 'id',
@@ -14,53 +12,70 @@ var Items = Backbone.Collection.extend({
   nextID: function() {
     return ++this.lastID;
   },
-  sortBy: function(e) {
-    var prop = $(e.target).data('prop');
-    this.models = _(this.models).sortBy(function(model) {
-      return model.attributes[prop];
-    })
-    App.render();
-  },  
-  initialize: function() {
-    this.on('change remove add reset sort', App.render.bind(App));
-  },
 })
 
-var App = {
-  $tbody: $('tbody'),
+
+var itemsView = Backbone.View.extend({
+  el: 'tbody',
+  template: Handlebars.compile($('#items').html()),
+  events: {
+    'click a' : 'remove',
+  },
+
+  remove: function(e) {
+    e.preventDefault()
+    var $e = $(e.target);
+    this.collection.remove(+$e.data('id'));
+  },
+
   render: function() {
-    var context = {items: list.models};
-    this.$tbody.html(template(context));
+    var context = {items: this.collection.toJSON()};
+    this.$el.html(this.template(context));
   },
-  create: function(e) {
-    e.preventDefault();
-    var inputs = $('form').serializeArray();
-    var attrs = {};
-    var item;
-    _(inputs).each(function(input) { attrs[input.name] = input.value });
-    list.add(attrs);
-    document.getElementsByTagName('form')[0].reset();
-  },
-  bind: function() {
-    this.$tbody.on('click', 'a', this.remove.bind(this));
-    $('form').on('submit', this.create.bind(this));
-    $('p a').on('click', this.deleteAll.bind(this));
-    $('th').on('click', list.sortBy.bind(list));
-  },
+
   deleteAll: function(e) {
     e.preventDefault();
     this.collection.reset();
   },
-  remove: function(e) {
-    e.preventDefault()
-    var $e = $(e.target);
-    list.remove(+$e.data('id'));
-  },
+
+  initialize: function() {
+    this.listenTo(this.collection, 'remove add reset sort', this.render);
+  }
+})
+
+
+
+
+
+var App = {
   init: function() {
-    this.render();
-    this.bind();
+    Handlebars.registerPartial('item', $('#item').html());
+    this.list = new Items(items_json);
+    this.listView = new itemsView({collection: this.list});
+    this.listView.render();
   }
 }
 
-var list = new Items(items_json);
 App.init();
+
+
+$('form').on('submit', function(e) {
+  e.preventDefault();
+  var inputs = $('form').serializeArray();
+  var attrs = {};
+  var item;
+  _(inputs).each(function(input) { attrs[input.name] = input.value });
+  App.list.add(attrs);
+  document.getElementsByTagName('form')[0].reset();
+});
+
+$('p').on('click', 'a', function(e) {
+  e.preventDefault();
+  App.list.reset();
+});
+
+$('th').on('click', function(e) {
+  var prop = $(e.target).data('prop');
+  App.list.comparator = prop;
+  App.list.sort();
+});
