@@ -1,0 +1,21 @@
+{
+  "name": "grunt_ex_project_setup",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Daron Spaulding <dspaulding25@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/DaronJS/LS-260-MVC-Applications",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "^1.3.3"
+  }
+}

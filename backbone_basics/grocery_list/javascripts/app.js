@@ -12,6 +12,10 @@ var Items = Backbone.Collection.extend({
   nextID: function() {
     return ++this.lastID;
   },
+  sortByProp: function(prop) {
+    this.comparator = prop;
+    this.sort();
+  }
 })
 
 
@@ -76,6 +80,5 @@ $('p').on('click', 'a', function(e) {
 
 $('th').on('click', function(e) {
   var prop = $(e.target).data('prop');
-  App.list.comparator = prop;
-  App.list.sort();
+  App.list.sortByProp(prop);
 });
