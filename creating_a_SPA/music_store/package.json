@@ -10,6 +10,9 @@
   "author": "Daron Spaulding",
   "license": "ISC",
   "dependencies": {
+    "grunt": "^1.0.1",
+    "grunt-bower-concat": "^1.0.0",
+    "grunt-contrib-uglify": "^3.0.1",
     "jasmine-node": "^1.14.5",
     "node-static": "^0.7.9",
     "nodemon": "^1.11.0",
