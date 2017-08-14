@@ -1,10 +1,1 @@
 extends layout
-
-block content
-  h1 Albums
-  ul
-
-block scripts
-  script(type='text/javascript').
-    App.albums = new Albums(!{JSON.stringify(albums)});
-    App.init();

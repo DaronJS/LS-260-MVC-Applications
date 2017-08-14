@@ -40,6 +40,8 @@ module.exports = function(router) {
   });
 
   router.get('/albums/new', function(req, res) {
-    res.render('new');
+    res.render('new', {
+      albums: Albums.get(),
+    });
   });
 }

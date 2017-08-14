@@ -12,6 +12,14 @@ this["JST"]["album"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":fun
     + "</h3><p>"
     + alias4(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"date","hash":{},"data":data}) : helper)))
     + "</p><p>$"
-    + alias4(((helper = (helper = helpers.price || (depth0 != null ? depth0.price : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"price","hash":{},"data":data}) : helper)))
+    + alias4((helpers.formatPrice || (depth0 && depth0.formatPrice) || alias2).call(alias1,(depth0 != null ? depth0.price : depth0),{"name":"formatPrice","hash":{},"data":data}))
     + "</p><a class='button' href='#'>Add to cart</a>";
+},"useData":true});
+
+this["JST"]["index"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<h1>Albums</h1><ul></ul><footer><a class='button' href='/albums/new'>Add Album</a></footer>";
+},"useData":true});
+
+this["JST"]["new_album"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<form action=\"/albums\" method='post'><h1>New Album</h1><fieldset><dl><dt><label>Title</label></dt><dd><input type='text' name='title'></dd><dt><label>Artist</label></dt><dd><input type='text' name='artist'></dd><dt><label>Date</label></dt><dd><input type='date' name='date'></dd><dt><label>Cover</label></dt><dd><input type='url' name='cover'></dd><dt><label>Price</label></dt><dd><input type='text' name='price'></dd></dl></fieldset><fieldset class='actions'><input type='submit' value=\"Create\"></fieldset></form>";
 },"useData":true});
