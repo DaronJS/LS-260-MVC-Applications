@@ -22,7 +22,7 @@ form
     
 
 main
-  width: 800px
+  width: 1000px
   padding: 25px 40px
   margin: 0 auto
   background: colors.main
@@ -49,8 +49,80 @@ h1
       h2, h3, p
         padding: 0 0 5px 0
       h2
-        font-size: 1.5em
+        font-size: 1.2em
       h3
-        font-size: 1.25em
+        font-size: 1.1em
 a.button, input[type='submit']
   button()
+  
+header
+  display: flex
+  flex-direction: row-reverse
+  width: 1000px
+  padding: 25px 40px
+  margin: 0 auto
+  background: colors.main
+    
+#cart
+  position: relative
+  float: right
+  width: 50%
+  padding: 15px 0 0 0
+  text-align: right
+  label
+    display: inline-block
+    padding: 2px 3px
+    cursor: pointer
+  input
+    display: none
+    &:checked
+      + #items
+        display: block
+  #items
+    display: none
+    position: absolute
+    top: 100%
+    right: 0
+    z-index: 1
+    padding: 5px 10px
+    color: colors.button.text
+    background: colors.button.bg
+    li
+      padding: 5px 0
+      font-size: 12px
+      text-align: left
+      small
+        font-size: 11px
+        float: right
+        margin: 0 0 0 10px
+    a 
+      float: left
+      position: relative
+      top: 2px;
+      width: 12px
+      height: 12px
+      margin: 0 5px 0 0
+      text-indent: 8685px
+      overflow: hidden
+      transform: rotate(45deg)
+      &:before,
+      &:after
+        position: absolute
+        content: ''
+        background: colors.delete
+      &:before
+        top: 0
+        bottom: 0
+        left: 50%
+        margin-left: -1px
+        width: 2px
+      &:after
+        top: 50%
+        right: 0
+        left: 0
+        height: 2px
+        margin-top: -1px
+
+#login
+  width: 50%
+  margin: 0 auto   

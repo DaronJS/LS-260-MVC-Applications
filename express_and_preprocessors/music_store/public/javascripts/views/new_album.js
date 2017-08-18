@@ -16,9 +16,10 @@ var newAlbumView = Backbone.View.extend({
       data: $f.serialize(),
       success: function(json) {
         App.albums.add(json);
-        App.renderIndexView();
+        // App.renderIndexView();
+        history.back();
       }
-    })
+    });
   },
   render: function() {
     this.$el.html(this.template())

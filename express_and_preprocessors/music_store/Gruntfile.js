@@ -1,5 +1,15 @@
 module.exports = function(grunt) {
   grunt.initConfig({
+    "babel": {
+      options: {
+        sourceMap: true
+      },
+      dist: {
+        files: {
+          "modules/albums_es5.js": "modules/albums.js"
+        }
+      }
+    },
     uglify: {
       my_target: {
         files: {
@@ -33,10 +43,11 @@ module.exports = function(grunt) {
   [
     'grunt-bower-concat',
     'grunt-contrib-uglify',
-    'grunt-contrib-handlebars'
+    'grunt-contrib-handlebars',
+    'grunt-babel',
   ].forEach(function(task) { grunt.loadNpmTasks(task) });
 
-  grunt.registerTask('default', ['bower_concat', 'uglify']);
+  grunt.registerTask('default', ['babel', 'bower_concat', 'uglify']);
 };
 
 

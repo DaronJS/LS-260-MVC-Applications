@@ -4,9 +4,16 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var expressSession = require('express-session')
 var stylus = require('stylus');
 var nib = require('nib');
+
+var passport = require('passport');
+module.exports = () => passport;
+var passportLocal = require('passport-local');
+
 var app = express();
+
 
 // routes
 var routes = require('./routes/all');
@@ -20,14 +27,42 @@ app.use(stylus.middleware({
   compile: function(str, p) {
     return stylus(str).set('filename', p).use(nib());
   }
-}))
+}));
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(expressSession({ 
+  secret: process.env.SESSION_SECRET || 'secret',
+  resave: false,
+  saveUninitialized: false
+}))
 app.use(express.static(path.join(__dirname, 'public')));
+
+//authentication
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new passportLocal.Strategy(function(username, password, done){
+  //pretend this is using a database
+  if(username === password) { // match input to data on database
+    return done(null, {id: username, name: username });
+  }else { // in case of fail
+    return done(null, null);
+  }
+}));
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id)
+});
+
+passport.deserializeUser(function(id, done) {
+  //query the database or cache here
+  done({id: id, name: id}) // this will be a real db query
+})
 
 app.use('/', routes);
 

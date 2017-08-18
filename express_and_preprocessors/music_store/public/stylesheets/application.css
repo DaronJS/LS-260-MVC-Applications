@@ -21,7 +21,7 @@ form input[type="url"] {
   box-sizing: border-box;
 }
 main {
-  width: 800px;
+  width: 1000px;
   padding: 25px 40px;
   margin: 0 auto;
   background: #fff;
@@ -52,10 +52,10 @@ h1 {
   padding: 0 0 5px 0;
 }
 #index ul li h2 {
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 #index ul li h3 {
-  font-size: 1.25em;
+  font-size: 1.1em;
 }
 a.button,
 input[type='submit'] {
@@ -87,4 +87,85 @@ input[type='submit']:active {
   top: 2px;
   left: 2px;
   box-shadow: 1px 1px 0 1px #008a73;
+}
+header {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 1000px;
+  padding: 25px 40px;
+  margin: 0 auto;
+  background: #fff;
+}
+#cart {
+  position: relative;
+  float: right;
+  width: 50%;
+  padding: 15px 0 0 0;
+  text-align: right;
+}
+#cart label {
+  display: inline-block;
+  padding: 2px 3px;
+  cursor: pointer;
+}
+#cart input {
+  display: none;
+}
+#cart input:checked + #items {
+  display: block;
+}
+#cart #items {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1;
+  padding: 5px 10px;
+  color: #fff;
+  background: #00a388;
+}
+#cart #items li {
+  padding: 5px 0;
+  font-size: 12px;
+  text-align: left;
+}
+#cart #items li small {
+  font-size: 11px;
+  float: right;
+  margin: 0 0 0 10px;
+}
+#cart #items a {
+  float: left;
+  position: relative;
+  top: 2px;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px 0 0;
+  text-indent: 8685px;
+  overflow: hidden;
+  transform: rotate(45deg);
+}
+#cart #items a:before,
+#cart #items a:after {
+  position: absolute;
+  content: '';
+  background: #b00b00;
+}
+#cart #items a:before {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+  width: 2px;
+}
+#cart #items a:after {
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 2px;
+  margin-top: -1px;
+}
+#login {
+  width: 50%;
+  margin: 0 auto;
 }

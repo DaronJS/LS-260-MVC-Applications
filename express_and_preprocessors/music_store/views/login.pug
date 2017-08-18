@@ -1,0 +1,16 @@
+include _mixins
+
+doctype html
+html
+  head
+    title Music Store
+    link(href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet")
+    +stylesheet_link_tag('application')
+    +javascript_include_tag('vendor/all')
+    +javascript_include_tag('handlebars_templates')
+  body
+    form#login(method="post" action="/login")
+      input(type='text' placeholder='username' name='username')
+      input(type='text' placeholder='password' name='password')
+      input(type='submit')
+  
