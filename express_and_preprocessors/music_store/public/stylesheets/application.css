@@ -169,3 +169,24 @@ header {
   width: 50%;
   margin: 0 auto;
 }
+#admin ul {
+  width: 80%;
+  margin: 0 0 100px 0;
+}
+#admin ul li {
+  padding: 7px 0;
+  font-size: 18px;
+  margin: 0 0 3px 0;
+}
+#admin ul li:hover {
+  background: #ffff9d;
+}
+#admin ul li .button {
+  float: right;
+  margin: -7px 3px;
+  padding: 7px 18px;
+  font-size: 12px;
+}
+#admin form {
+  display: none;
+}

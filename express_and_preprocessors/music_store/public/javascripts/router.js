@@ -1,6 +1,6 @@
 var router = new (Backbone.Router.extend({
   routes: {
-    'albums/new': App.newAlbum,
+    'admin': App.admin,
   },
   index: function() { App.renderIndexView(); },
   initialize: function() {

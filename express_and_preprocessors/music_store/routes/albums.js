@@ -23,7 +23,6 @@ module.exports = function(router) {
   .put(function(req, res) {
     var albums = Albums.get();
     var current_album = _(albums).findWhere({ id: +req.body.id });
-
     _.extend(current_album, req.body);
     Albums.set(albums);
     res.json(current_album);
@@ -31,7 +30,7 @@ module.exports = function(router) {
 
   .delete(function(req, res) {
     var albums = _(Albums.get()).reject(function(a) {
-      return a.id === +req.body.id
+      return +a.id === +req.body.id;
     });
 
     Albums.set(albums);

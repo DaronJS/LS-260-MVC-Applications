@@ -21,12 +21,12 @@ var App = {
       model: album
     })
   },
-  newAlbum: function() {
-    new newAlbumView();
+  admin: function() {
+    this.adminView = new adminView();
   },
   bindEvents: function() {
     _.extend(this, Backbone.Events);
-    this.listenTo(this.indexView, 'add_album', this.newAlbum);
+    this.listenTo(this.indexView, 'admin', this.admin);
     this.on('add_to_cart', this.cart.addItem.bind(this.cart))
   }
 };

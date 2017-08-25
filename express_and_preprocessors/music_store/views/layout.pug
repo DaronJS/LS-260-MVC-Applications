@@ -10,7 +10,7 @@ html
     +javascript_include_tag('handlebars_templates')
   body
     header
-      #cart
+      block header
 
     main
       block content
@@ -18,7 +18,7 @@ html
     +javascript_include_tag('application')
     +javascript_include_tag('models/album')
     +javascript_include_tag('collections/albums', 'collections/cart_items')
-    +javascript_include_tag('views/album', 'views/new_album', 'views/index', 'views/cart')
+    +javascript_include_tag('views/album', 'views/admin', 'views/index', 'views/cart')
     script(type='text/javascript').
       App.albums = new Albums(!{JSON.stringify(albums)});
     +javascript_include_tag('router')

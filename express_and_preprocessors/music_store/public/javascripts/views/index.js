@@ -4,11 +4,11 @@ var IndexView = Backbone.View.extend({
     id: 'index',
   },
   events: {
-    'click footer a': 'addAlbum' 
+    'click footer a': 'admin' 
   },
-  addAlbum: function(e) {
+  admin: function(e) {
     e.preventDefault();
-    this.trigger('add_album');
+    this.trigger('admin');
   },
   render: function() {
     this.$el.html(this.template());
