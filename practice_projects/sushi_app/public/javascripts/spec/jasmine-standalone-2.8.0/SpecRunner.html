@@ -11,19 +11,29 @@
   <script src="lib/jasmine-2.8.0/jasmine-html.js"></script>
   <script src="lib/jasmine-2.8.0/boot.js"></script>
   <script src="../../vendor/all.js"></script>
+  <script src="../../handlebars_templates.js"></script>
 
   <!-- include source files here... -->
   <script src='data.js'></script>
   <script src="../../models/menu_item.js"></script>
   <script src="../../collections/cart.js"></script>
   <script src="../../collections/menu.js"></script>
+  <script src="../../application.js"></script>
+  <script src="../../views/item.js"></script>
+  <script src="../../views/menu.js"></script>
 
   <!-- include spec files here... -->
-  <script src="spec/menu_spec.js"></script>
-  <script src="spec/cart_spec.js"></script>
-
+  <style>
+    #content {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
+  <div id='content'></div>
+  <script src="spec/menu_spec.js"></script>
+  <script src="spec/cart_spec.js"></script>
+  <script src="spec/menu_view_spec.js"></script>
 </body>
 </html>

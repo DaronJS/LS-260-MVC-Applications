@@ -3,114 +3,133 @@
   {
     "id": 1,
     "name": "Sashimi salad",
+    "description": "Organic greens topped with fresh sashimi, wasabi soy vinaigrette.",
     "price": 12,
     "imgUrl": "images/sashimi-salad.jpg"
   },
   {
     "id": 2,
     "name": "Chirashi sushi",
+    "description": "Sushi bar variety with sushi rice.",
     "price": 21,
     "imgUrl": "images/chirashi-sushi.jpg"
   },
   {
     "id": 3,
     "name": "Seaweed salad",
+    "description": "A nice seaweed salad.",
     "price": 17,
     "imgUrl": "images/seaweed-salad.jpg"
   },
   {
     "id": 4,
     "name": "Edamame",
+    "description": "Boiled soy beans with salt",
     "price": 4,
     "imgUrl": "images/edamame.jpg"
   },
   {
     "id": 5,
     "name": "Miso soup",
+    "description": "Soy bean soup with Wacame seaweed, tofu and spring onion.",
     "price": 4,
     "imgUrl": "images/miso-soup.jpg"
   },
   {
     "id": 6,
     "name": "Maguro",
+    "description": "Tuna pieces",
     "price": 12.5,
     "imgUrl": "images/maguro.jpg"
   },
   {
     "id": 7,
     "name": "Shake",
+    "description": "",
     "price": 10,
     "imgUrl": "images/shake.jpg"
   },
   {
     "id": 8,
     "name": "Shiromi",
+    "description": "White fish pieces.",
     "price": 9.5,
     "imgUrl": "images/shiromi.jpg"
   },
   {
     "id": 9,
     "name": "Tekka maki",
+    "description": "Tuna roll with wasabi. - 6 pieces",
     "price": 6,
     "imgUrl": "images/tekka-maki.jpg"
   },
   {
     "id": 10,
     "name": "Hosomaki Mix",
+    "description": "18 pieces.",
     "price": 17,
     "imgUrl": "images/hosomaki-mix.jpg"
   },
   {
     "id": 11,
     "name": "California rolls",
+    "description": "Crab sticks, avocado and cucumber. - 8 pieces",
     "price": 7.75,
     "imgUrl": "images/california-rolls.jpg"
   },
   {
     "id": 12,
     "name": "Seattle-rolls",
+    "description": "Smoked salmon. Cucumber. Cream cheese.",
     "price": 12,
     "imgUrl": "images/seattle-rolls.jpg"
   },
   {
     "id": 13,
-   "name": "Spicy Tuna rolls",
+    "name": "Spicy Tuna rolls",
+    "description": "Spicy tuna, spring onion and avocado. - 6 pieces",
     "price": 12,
     "imgUrl": "images/spicytuna-rolls.jpg"
   },
   {
     "id": 14,
     "name": "Ebi rolls",
+    "description": "King prawns, avocado and asparagus. - 8 pieces",
     "price": 8,
     "imgUrl": "images/ebi-rolls.jpg"
   },
   {
     "id": 15,
     "name": "Chicken Teriyaki",
+    "description": "Sauted chicken with teiyaki sauce.",
     "price": 12,
     "imgUrl": "images/chicken-teriyaki.jpg"
   },
   {
     "id": 16,
     "name": "Salmon Teriyaki",
+    "description": "Sauted salmon with teriyaki sauce.",
     "price": 13.5,
     "imgUrl": "images/salmon-teriyaki.jpg"
   },
   {
     "id": 17,
     "name": "Gohan",
+    "description": "Steamed rice.",
     "price": 3,
     "imgUrl": "images/gohan.jpg"
   },
   {
     "id": 18,
     "name": "Tori Katsu",
+    "description": "Pan-fried chicken breast with yasai salad.",
     "price": 11,
     "imgUrl": "images/tori-katsu.jpg"
   },
   {
     "id": 19,
     "name": "Yaki Udon",
+    "description": "Udon noddles with chicken, king prawns and vegetables.",
     "price": 11.5,
     "imgUrl": "images/yaki-udon.jpg"
   }

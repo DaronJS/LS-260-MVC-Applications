@@ -4,7 +4,14 @@ var MenuView = Backbone.View.extend({
     id: 'items'
   },
   events: {
-    'click a.add_cart': 'addToCart'
+    'click a.add_cart': 'addToCart',
+    'click article header': 'showDetails',
+  },
+  showDetails: function(e) {
+    e.preventDefault();
+    var itemId = $(e.target).closest('li').attr('data-id');
+    var item = this.collection.findWhere({id: +itemId});
+    App.trigger('showDetails', item);
   },
   addToCart: function(e) {
     e.preventDefault();

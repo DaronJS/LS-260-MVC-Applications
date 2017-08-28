@@ -1,4 +1,5 @@
 var App = {
+  templates: JST,
   createCart: function() {
     this.cart = new CartItems();
     this.cart.view = new CartView({collection: this.cart });
@@ -11,6 +12,9 @@ var App = {
   emptyCart: function() {
     this.cart.empty();
     $('.cart .count').text(this.cart.quantity);
+  },
+  showDetails: function(item) {
+    this.itemDetailsView = new ItemDetailsView({model: item});
   },
   addToCart: function(item) {
     this.cart.addItem(item);
