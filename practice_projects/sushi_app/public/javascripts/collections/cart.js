@@ -1,8 +1,9 @@
 var CartItems = Backbone.Collection.extend({
   model: MenuItem,
   setQuantity: function() {
-    this.quantity = this.length;
-    return this;
+    this.quantity = this.toJSON().reduce(function(acc, cur) {
+      return acc += cur.quantity;
+    }, 0)
   },
   setTotal: function() {
     if(this.quantity > 0) {
@@ -34,8 +35,11 @@ var CartItems = Backbone.Collection.extend({
   update: function() {
     this.setQuantity();
     this.setTotal();
+    localStorage.setItem('sushiCart', JSON.stringify(this.toJSON()));
   },
   initialize: function() {
+    var savedCart = JSON.parse(localStorage.getItem('sushiCart'));
+    if(savedCart) { this.set(savedCart) };
     this.update();
   },
 });

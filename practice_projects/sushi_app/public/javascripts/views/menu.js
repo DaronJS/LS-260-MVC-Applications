@@ -9,25 +9,26 @@ var MenuView = Backbone.View.extend({
   },
   showDetails: function(e) {
     e.preventDefault();
+    this.remove();
     var itemId = $(e.target).closest('li').attr('data-id');
-    var item = this.collection.findWhere({id: +itemId});
-    App.trigger('showDetails', item);
+    App.trigger('showDetails', itemId);
   },
   addToCart: function(e) {
     e.preventDefault();
+    e.stopPropagation();
     var itemId = $(e.target).closest('li').attr('data-id');
-    var item = this.collection.findWhere({id: +itemId});
-    App.trigger('add_to_cart', item);
+    App.trigger('add_to_cart', itemId);
   },
   render: function() {
     this.collection.each(this.renderItem.bind(this))
-    $('#content').html(this.el);
+    $('#content').append(this.el);
   },
   renderItem: function(item) {
     var itemView = new ItemView({model: item});
     this.$el.append(itemView.el);
   },
   initialize: function() {
-    this.render()
+    this.on('destroy', this.remove.bind(this));
+    this.render();
   }
 })

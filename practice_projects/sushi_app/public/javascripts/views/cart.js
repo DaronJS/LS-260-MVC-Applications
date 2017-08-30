@@ -4,7 +4,12 @@ var CartView = Backbone.View.extend({
     id: 'cart',
   },
   events: {
-    'click a.empty_cart': 'emptyCart'
+    'click a.empty_cart': 'emptyCart',
+    'click .checkout'   : 'checkout',
+  },
+  checkout: function(e) {
+    e.preventDefault();
+    App.trigger('checkout');
   },
   emptyCart: function(e) {
     e.preventDefault();
@@ -14,6 +19,7 @@ var CartView = Backbone.View.extend({
     this.$el.html(this.template(this.collection));
     this.collection.forEach(this.renderCartItem.bind(this));
     $('#cart').replaceWith(this.$el);
+    $('.cart .count').text(App.cart.quantity);
   },
   renderCartItem: function(item) {
     var cartItemView = new CartItemView({model: item});
