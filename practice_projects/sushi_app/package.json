@@ -1,6 +1,6 @@
 {
   "name": "sushi-app",
-  "version": "0.0.0",
+  "version": "6.10.3",
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www"
