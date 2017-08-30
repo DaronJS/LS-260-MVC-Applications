@@ -15,6 +15,16 @@ var CartItems = Backbone.Collection.extend({
       this.total = 0 
     }
   },
+  removeItem: function(item) {
+    var cartItem = this.get(item.get('id'));
+    var quantity = cartItem.get('quantity');
+    if( quantity > 1) { 
+      cartItem.set('quantity', quantity - 1);
+    }else {
+      this.remove(cartItem);
+    }
+    this.update();
+  },
   addItem: function(item) {
     var existing = this.get(item.get('id'));
 
@@ -25,17 +35,16 @@ var CartItems = Backbone.Collection.extend({
       this.add(item);
     }
     this.update();
-    this.trigger('cart_updated');
   },
   empty: function() { 
     this.reset();
     this.update();
-    this.trigger('cart_updated');
   },
   update: function() {
     this.setQuantity();
     this.setTotal();
     localStorage.setItem('sushiCart', JSON.stringify(this.toJSON()));
+    this.trigger('cart_updated');
   },
   initialize: function() {
     var savedCart = JSON.parse(localStorage.getItem('sushiCart'));

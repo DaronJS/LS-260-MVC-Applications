@@ -20,6 +20,8 @@ var CartView = Backbone.View.extend({
     this.collection.forEach(this.renderCartItem.bind(this));
     $('#cart').replaceWith(this.$el);
     $('.cart .count').text(App.cart.quantity);
+    if(this.collection.length < 1) { this.$el.slideUp({duration: 300}); }
+    if(this.collection.length > 0) { this.$el.slideDown({duration: 300}); }
   },
   renderCartItem: function(item) {
     var cartItemView = new CartItemView({model: item});

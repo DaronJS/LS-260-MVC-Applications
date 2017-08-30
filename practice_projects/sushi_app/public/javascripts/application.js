@@ -7,11 +7,16 @@ var App = {
   bindEvents: function() {
     _.extend(this, Backbone.Events);
     this.on('add_to_cart', this.addToCart.bind(this));
+    this.on('remove_from_cart', this.removeItem.bind(this));
     this.on('empty_cart', this.emptyCart.bind(this));
     this.on('showDetails', this.showDetails.bind(this));
     this.on('detailsViewRemoved', this.showMenu.bind(this));
     this.on('checkout', this.showCheckout.bind(this));
     this.on('order_canceled', this.orderCanceled.bind(this));
+  },
+  removeItem: function(itemId) {
+    var item = this.menu.get(itemId);
+    this.cart.removeItem(item);
   },
   orderCanceled: function() {
     router.navigate('../menu');
